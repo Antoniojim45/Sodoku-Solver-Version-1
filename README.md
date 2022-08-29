@@ -1,4 +1,4 @@
-# Sodoku Solver Ver_1
+## Sodoku Solver Ver_1
 
 ## Description
 Sudoku is a logic-based puzzle in which the player is introduced by a 9 x 9 grid. 
