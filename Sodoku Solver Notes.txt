@@ -1,0 +1,43 @@
+In this Project we will be using recursion to solve sodoku problems.
+
+- the first thing we do is to define the sodoku solver function.
+- the sodoku solver used a list of list, where each list is a row in the sodoku solver. 
+
+but first a little background is sodoku.
+- a typlical sodoku board is a 9x9 grid. 
+- a block is made up of 9 cells but its a 3 x 3. 
+- a rank is a row of blocks which total to a number of 3
+- a stack is a column blocks which is also a total number of 3
+- the goal is to fill a block, a corresponding row and column with each value and having no repeating value. 
+
+in the sodoku solver we want to choose a spot where we want to make a guess. 
+as a human we typically go where we have the most information becuase we have a computer, we can assign a number to any open space onto the board and we can try every single combination. if this combination does not work then lets take a step back and do it again. 
+
+- create a helper function called find_next_empty (puzzle)
+- in the find_next_empty(puzzle)
+	- finds the next row, col on the puzzle that is not filled yet --> rep with -1
+	- return row, col tuple (or (None, None) if there is none)
+	- keep in mind that we are using 0-8 for our indecies
+	- using a nested for loop, go thorugh each of the spots until you find -1, if you 	  	  dont find any then return None, None.
+- going back to the solve sodoku function, if there is nowhere left, then we're done because we only allowed valid inputs. 
+- if the row is none then we return true. 
+- if there is a place to put a number, then make a guess between 1 and 9
+	make a for loop going from 1 to 9
+- check if the guess is valid. pass the puzzle, guess, row and col to is_valid().
+
+define the funciton is_valid();
+- figures out whether the guess at the row/col of the puzzle is a valid guess
+- returns true if is valid, false otherwise.
+- get the row value from the puzzle matrix and place it in a variable row_val
+- if the guess is in the row_vals then return false
+- we create a new list for col_vals = []
+- we then create a for loop ranging up to 9 we then append each col value from each row.
+	for i in range(9):
+		col_vals.append(puzzle[i][col])
+if the guess is in col_vals then return false. 
+- we then want to get where the 3x3 square starts and iterates over the 3 values in the row/column 
+
+	take the row index the floor divide it by 3 then multiply it by 3
+	then take col index and floor divide it by 3 then multiply it by 3. 
+	
+then for every space in the 3x3 matrix, 
